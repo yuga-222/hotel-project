@@ -1,0 +1,25 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h2 th:text="${title}">Show Hotel</h2>
+      <div th:object="${hotel}">
+        <div class="card my-card">
+          <img class="card-img-top" th:src="*{getPhotoUrl()}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title" th:text="*{name}"></h4>
+            <p class="card-text" th:text="*{description}"></p>
+            <ul th:each="information:${informations}" th:object="${information}">
+              <li th:text="*{name}"></li>
+            </ul>
+            <div class="d-flex justify-content-around">
+              <a th:href="@{/hotels/{id}/reservations/new(id=*{id})}" class="btn btn-info">予約する</a>
+              <a th:href="@{/hotels/{id}/reviews/new(id=*{id})}" class="btn btn-info">レビュー投稿</a>
+              <a th:href="@{/hotels/{id}/reviews/(id=*{id})}" class="btn btn-info">レビュー一覧</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pull-right">
+        <a class="btn btn-link" href="/hotels">一覧画面へ</a>
+      </div>
+    </div>
+  </div>

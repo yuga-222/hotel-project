@@ -1,0 +1,19 @@
+<div layout:decorate="layout">
+  <div layout:fragment="contents">
+      <em th:text="${title}">Show Contact</em>
+      <div th:object="${contact}">
+           <div>
+              <b>名前:</b>
+              <p th:text="*{name}"></p>
+           </div>
+           <div>
+              <b>メールアドレス: </b><p th:text="*{email}"></p>
+           </div>
+           <div>
+              <b>お問い合わせ内容: </b><p th:text="*{body}"></p>
+           </div>
+              <p><a class="btn btn-link" href="/hotels">トップページに戻る</a></p>
+          </div>
+      </div>
+  </div>
+</div>

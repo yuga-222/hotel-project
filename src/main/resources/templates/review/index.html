@@ -1,0 +1,32 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h2 th:text="${title}">Review Index</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>本文</th>
+            <th>評価</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="review:${reviews}" th:object="${review}">
+            <td th:text="*{name}"></td>
+            <td th:text="*{body}"></td>
+            <td th:text="*{rating}"></td>
+            <td><a class="btn btn-info btn-xs" th:href="@{/hotels/{hotel_id}/reviews/{id}(hotel_id=*{hotel.id},id=*{id})}">参照</a></td>
+            <td>
+              </form>
+            </td>
+            </tr>
+        </tbody>
+      </table>
+      <p>
+      <a class="btn btn-info" th:href="@{/hotels/{hotel_id}/reviews/new(hotel_id=${hotel.id})}">レビューを投稿する</a>
+      </p>
+      <p>
+      <a class="btn btn-link" href="/hotels">トップページに戻る</a>
+      </p>
+    </div>
+  </div>
+  

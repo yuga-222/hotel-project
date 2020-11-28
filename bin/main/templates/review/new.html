@@ -1,0 +1,26 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h2 th:text="${title}">New Review</h2>
+      <form th:action="@{/hotels/{hotel_id}/reviews/(hotel_id=*{hotel.id})}" th:method="post">
+        <div class="form-group">
+          <label class="control-label">名前</label>
+          <input class="form-control" type="text" name="name" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">本文</label>
+          <input class="form-control" type="text" name="body" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">評価</label>
+            <input class="form-control" type="text" name="rating" />
+          </div>  
+        <input class="form-control" type="hidden" name="hotelId" th:value="${hotel.id}" />
+        <button class="btn btn-info" type="submit">作成</button>
+      </form>
+      <div class="pull-right">
+        <a class="btn btn-link" th:href="@{/hotels/{hotel_id}(hotel_id=${hotel.id})}">ホテル詳細</a>
+
+      </div>
+    </div>
+  </div>
+  

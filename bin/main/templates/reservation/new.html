@@ -1,0 +1,32 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h2 th:text="${title}">New Reservation</h2>
+      <form th:action="@{/hotels/{hotel_id}/reservations/(hotel_id=*{hotel.id})}" th:method="post">
+        <div class="form-group">
+          <label class="control-label">氏名</label>
+          <input class="form-control" type="text" name="name" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">メールアドレス</label>
+          <input class="form-control" type="email" name="email" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">チェックイン日</label>
+            <input class="form-control" type="date" name="startDate" />
+         </div>  
+         <div class="form-group">
+            <label class="control-label">チェックアウト日</label>
+            <input class="form-control" type="date" name="endDate" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">人数</label>
+            <input class="form-control" type="text" name="numOfPeople" />
+          </div>
+        <input class="form-control" type="hidden" name="hotelId" th:value="${hotel.id}" />
+        <button class="btn btn-info" type="reservation">予約</button>
+      </form>
+      <div class="pull-right">
+        <a class="btn btn-link" th:href="@{/hotels/{hotel_id}(hotel_id=${hotel.id})}">ホテル詳細</a>
+      </div>
+    </div>
+  </div>

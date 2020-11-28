@@ -1,0 +1,24 @@
+<div layout:decorate="layout">
+    <div layout:fragment="contents">
+      <h1 th:text="${title}">Infomation Index</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>名前</th>
+            <th>本文</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="information:${informations}" th:object="${information}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{body}"></td>
+            <td><a class="btn btn-secondary btn-xs" th:href="@{/hotels/{hotel_id}/informations/{id}(hotel_id=*{hotel.id},id=*{id})}">参照</a></td>
+            </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-secondary" th:href="@{/hotels/{hotel_id}/informations/new(hotel_id=${hotel.id})}">新規作成</a>
+    </div>
+  </div>
+  
